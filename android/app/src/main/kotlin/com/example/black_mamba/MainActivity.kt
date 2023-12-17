@@ -1,4 +1,10 @@
 package com.example.black_mamba
 
-class MainActivity: FlutterActivity() {
+
+class MainActivity : AppCompatActivity() {
+    // ...
+}
+
+open class AppCompatActivity {
+
 }

@@ -9,7 +9,7 @@ class CustomButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-        width: 327,
+        width: MediaQuery.of(context).size.width,
         height: 55,
         child: Padding(
           padding: const EdgeInsets.all(8.0),
