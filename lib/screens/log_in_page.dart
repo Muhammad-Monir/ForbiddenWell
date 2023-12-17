@@ -1,8 +1,9 @@
-import 'package:black_mamba/utils/button/custom_button.dart';
+import 'package:black_mamba/utils/button/long_button.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import 'forgot_password_page.dart';
+import 'sign_up_page.dart';
 
 class LogInPage extends StatefulWidget {
   const LogInPage({super.key});
@@ -65,7 +66,7 @@ class _LogInPageState extends State<LogInPage> {
                       keyboardType: TextInputType.emailAddress,
                       decoration: const InputDecoration(
                         border: OutlineInputBorder(),
-                        labelText: 'yourmail@gmail.com',
+                        hintText: 'yourmail@gmail.com',
                       ),
                       validator: (value) {
                         if (value == null || value.isEmpty) {
@@ -110,7 +111,7 @@ class _LogInPageState extends State<LogInPage> {
                       keyboardType: TextInputType.text,
                       decoration: InputDecoration(
                         border: const OutlineInputBorder(),
-                        labelText: 'input password',
+                        hintText: 'input password',
                         suffixIcon: IconButton(
                           onPressed: () {
                             setState(() {
@@ -130,7 +131,7 @@ class _LogInPageState extends State<LogInPage> {
                       },
                       obscureText: isObscure,
                     ),
-                    CustomButton(
+                    LongButton(
                       title: 'Log In',
                       onPressed: () {
                         _logIn();
@@ -146,7 +147,7 @@ class _LogInPageState extends State<LogInPage> {
                               fontSize: 14),
                         ),
                         TextButton(
-                          onPressed: () {},
+                          onPressed: () {_signUp();},
                           child: Text(
                             'Sign Up',
                             style: GoogleFonts.ubuntu(
@@ -177,5 +178,9 @@ class _LogInPageState extends State<LogInPage> {
 
   void _logIn() {
     if (_formKey.currentState!.validate()) {}
+  }
+
+  void _signUp() {
+    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const SignUpPage(),));
   }
 }

@@ -1,11 +1,11 @@
 
 import 'package:flutter/material.dart';
 
-class CustomButton extends StatelessWidget {
+class LongButton extends StatelessWidget {
   final String title;
   final VoidCallback onPressed;
 
-  const CustomButton({super.key, required this.title, required this.onPressed});
+  const LongButton({super.key, required this.title, required this.onPressed});
   @override
   Widget build(BuildContext context) {
     return SizedBox(

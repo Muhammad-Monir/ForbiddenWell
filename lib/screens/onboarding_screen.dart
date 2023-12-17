@@ -1,4 +1,4 @@
-import 'package:black_mamba/utils/button/custom_button.dart';
+import 'package:black_mamba/utils/button/long_button.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -48,7 +48,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
             const SizedBox(
               height: 60,
             ),
-            CustomButton(
+            LongButton(
               onPressed: () => Navigator.pushReplacement(
                 context,
                 MaterialPageRoute(

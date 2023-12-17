@@ -1,4 +1,4 @@
-import 'package:black_mamba/utils/button/custom_button.dart';
+import 'package:black_mamba/utils/button/long_button.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -68,7 +68,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
                 const SizedBox(
                   height: 50,
                 ),
-                CustomButton(
+                LongButton(
                   title: 'Send Email',
                   onPressed: () {
                     _sendEmail();

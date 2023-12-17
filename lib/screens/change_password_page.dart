@@ -1,3 +1,5 @@
+import 'package:black_mamba/screens/change_completed_password_page.dart';
+import 'package:black_mamba/utils/button/long_button.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -57,7 +59,9 @@ class _ChangePasswordPageState extends State<ChangePasswordPage> {
                     border: OutlineInputBorder(),
                   ),
                 ),
-                const SizedBox(height: 30,),
+                const SizedBox(
+                  height: 30,
+                ),
                 Text(
                   'NEW PASSWORD',
                   style: GoogleFonts.ubuntu(
@@ -83,7 +87,9 @@ class _ChangePasswordPageState extends State<ChangePasswordPage> {
                   ),
                   obscureText: isObscureNew,
                 ),
-                const SizedBox(height: 30,),
+                const SizedBox(
+                  height: 30,
+                ),
                 Text(
                   'CONFIRM PASSWORD',
                   style: GoogleFonts.ubuntu(
@@ -109,8 +115,23 @@ class _ChangePasswordPageState extends State<ChangePasswordPage> {
                   ),
                   obscureText: isObscureConfirm,
                 ),
+                const SizedBox(
+                  height: 40,
+                ),
+                LongButton(
+                  title: 'Change Password',
+                  onPressed: () {
+                    Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) =>
+                            const ChangeCompletedPasswordPage(),
+                      ),
+                    );
+                  },
+                ),
               ],
-            )
+            ),
           ],
         ),
       ),
