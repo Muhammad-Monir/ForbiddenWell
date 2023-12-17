@@ -92,6 +92,7 @@ class _SignUpPageState extends State<SignUpPage> {
                       ),
                     ),
                     obscureText: isObscure,
+
                   ),
                   const SizedBox(
                     height: 40,
