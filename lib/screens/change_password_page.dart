@@ -71,7 +71,7 @@ class _ChangePasswordPageState extends State<ChangePasswordPage> {
                 ),
                 TextFormField(
                   controller: _newPasswordController,
-                  keyboardType: TextInputType.number,
+                  keyboardType: TextInputType.text,
                   decoration: InputDecoration(
                     border: const OutlineInputBorder(),
                     suffixIcon: IconButton(
@@ -99,7 +99,7 @@ class _ChangePasswordPageState extends State<ChangePasswordPage> {
                 ),
                 TextFormField(
                   controller: _confirmPasswordController,
-                  keyboardType: TextInputType.number,
+                  keyboardType: TextInputType.text,
                   decoration: InputDecoration(
                     border: const OutlineInputBorder(),
                     suffixIcon: IconButton(

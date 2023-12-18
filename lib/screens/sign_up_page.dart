@@ -104,7 +104,7 @@ class _SignUpPageState extends State<SignUpPage> {
                     },
                   ),
                   const SizedBox(
-                    height: 100,
+                    height: 200,
                   ),
                   Text(
                     'By clicking Join Forbidden Well, you are agreeing to the\n Terms of Use and the Privacy Policy',

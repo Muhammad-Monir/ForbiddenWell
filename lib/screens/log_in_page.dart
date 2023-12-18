@@ -4,6 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 
 import 'forgot_password_page.dart';
 import 'sign_up_page.dart';
+import 'your_details_page.dart';
 
 class LogInPage extends StatefulWidget {
   const LogInPage({super.key});
@@ -131,34 +132,39 @@ class _LogInPageState extends State<LogInPage> {
                       },
                       obscureText: isObscure,
                     ),
+                    const SizedBox(height: 40),
                     LongButton(
                       title: 'Log In',
                       onPressed: () {
                         _logIn();
                       },
                     ),
-                    Row(
-                      children: [
-                        Text(
-                          "Don't have an account?",
-                          style: GoogleFonts.ubuntu(
-                              color: Colors.grey,
-                              fontWeight: FontWeight.w700,
-                              fontSize: 14),
-                        ),
-                        TextButton(
-                          onPressed: () {_signUp();},
-                          child: Text(
-                            'Sign Up',
+                    const SizedBox(height: 250),
+                    Center(
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            "Don't have an account?",
                             style: GoogleFonts.ubuntu(
-                              fontSize: 14,
-                              fontWeight: FontWeight.w700,
-                              color: Colors.black,
+                                color: Colors.grey,
+                                fontWeight: FontWeight.w700,
+                                fontSize: 14),
+                          ),
+                          TextButton(
+                            onPressed: () {_signUp();},
+                            child: Text(
+                              'Sign Up',
+                              style: GoogleFonts.ubuntu(
+                                fontSize: 14,
+                                fontWeight: FontWeight.w700,
+                                color: Colors.black,
+                              ),
                             ),
                           ),
-                        ),
-                      ],
-                    )
+                        ],
+                      ),
+                    ),
                   ],
                 ),
               ),
@@ -177,7 +183,7 @@ class _LogInPageState extends State<LogInPage> {
   }
 
   void _logIn() {
-    if (_formKey.currentState!.validate()) {}
+    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const YourDetailsPage(),),);
   }
 
   void _signUp() {
