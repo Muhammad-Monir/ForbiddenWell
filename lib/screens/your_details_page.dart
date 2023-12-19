@@ -16,6 +16,7 @@ class _YourDetailsPageState extends State<YourDetailsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(),
       body: Padding(
         padding: const EdgeInsets.all(20.0),
         child: Column(
@@ -74,7 +75,10 @@ class _YourDetailsPageState extends State<YourDetailsPage> {
               controller: _nameController,
               keyboardType: TextInputType.name,
               decoration: const InputDecoration(
-                border: OutlineInputBorder(),
+                contentPadding: EdgeInsets.symmetric(vertical: 5.0, horizontal: 10.0),
+                border: OutlineInputBorder(
+                  borderSide: BorderSide(width: 1),
+                ),
                 hintText: 'Input your name',
               ),
             ),

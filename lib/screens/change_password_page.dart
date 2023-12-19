@@ -56,7 +56,8 @@ class _ChangePasswordPageState extends State<ChangePasswordPage> {
                   controller: _resetPasswordController,
                   keyboardType: TextInputType.number,
                   decoration: const InputDecoration(
-                    border: OutlineInputBorder(),
+                    contentPadding: EdgeInsets.symmetric(vertical: 5.0, horizontal: 10.0),
+                    border: OutlineInputBorder(borderSide: BorderSide(width: 5.0)),
                   ),
                 ),
                 const SizedBox(
@@ -73,7 +74,8 @@ class _ChangePasswordPageState extends State<ChangePasswordPage> {
                   controller: _newPasswordController,
                   keyboardType: TextInputType.text,
                   decoration: InputDecoration(
-                    border: const OutlineInputBorder(),
+                    contentPadding: const EdgeInsets.symmetric(vertical: 5.0, horizontal: 10.0),
+                    border: const OutlineInputBorder(borderSide: BorderSide(width: 5.0)),
                     suffixIcon: IconButton(
                       onPressed: () {
                         setState(() {
@@ -101,7 +103,8 @@ class _ChangePasswordPageState extends State<ChangePasswordPage> {
                   controller: _confirmPasswordController,
                   keyboardType: TextInputType.text,
                   decoration: InputDecoration(
-                    border: const OutlineInputBorder(),
+                    contentPadding: const EdgeInsets.symmetric(vertical: 5.0, horizontal: 10.0),
+                    border: const OutlineInputBorder(borderSide: BorderSide(width: 5.0)),
                     suffixIcon: IconButton(
                       onPressed: () {
                         setState(() {

@@ -65,15 +65,16 @@ class _LogInPageState extends State<LogInPage> {
                     TextFormField(
                       controller: _emailController,
                       keyboardType: TextInputType.emailAddress,
-                      decoration: const InputDecoration(
-                        border: OutlineInputBorder(),
+                      decoration: InputDecoration(
+                        contentPadding: const EdgeInsets.symmetric(vertical: 5.0, horizontal: 10.0),
+                        border: const OutlineInputBorder(borderSide: BorderSide(width: 1.0)),
                         hintText: 'yourmail@gmail.com',
+                        hintStyle: GoogleFonts.ubuntu(fontWeight: FontWeight.w700, fontSize: 16, color: Colors.black),
                       ),
                       validator: (value) {
                         if (value == null || value.isEmpty) {
                           return 'this field not empty';
-                        }
-                        else if(value.isNotEmpty) {
+                        } else if (value.isNotEmpty) {
                           return 'input valid gmail address';
                         }
                         return null;
@@ -86,7 +87,8 @@ class _LogInPageState extends State<LogInPage> {
                       children: [
                         Text(
                           'PASSWORD',
-                          style: GoogleFonts.ubuntu(fontWeight: FontWeight.w700),
+                          style:
+                              GoogleFonts.ubuntu(fontWeight: FontWeight.w700, color: Colors.black),
                         ),
                         const Spacer(),
                         TextButton(
@@ -111,8 +113,10 @@ class _LogInPageState extends State<LogInPage> {
                       controller: _passwordController,
                       keyboardType: TextInputType.text,
                       decoration: InputDecoration(
-                        border: const OutlineInputBorder(),
+                        contentPadding: const EdgeInsets.symmetric(vertical: 5.0 , horizontal: 10.0),
+                        border: const OutlineInputBorder(borderSide: BorderSide(width: 1.0)),
                         hintText: 'input password',
+                        hintStyle: GoogleFonts.ubuntu(fontWeight: FontWeight.w700, fontSize: 16, color: Colors.black),
                         suffixIcon: IconButton(
                           onPressed: () {
                             setState(() {
@@ -152,7 +156,9 @@ class _LogInPageState extends State<LogInPage> {
                                 fontSize: 14),
                           ),
                           TextButton(
-                            onPressed: () {_signUp();},
+                            onPressed: () {
+                              _signUp();
+                            },
                             child: Text(
                               'Sign Up',
                               style: GoogleFonts.ubuntu(
@@ -183,10 +189,19 @@ class _LogInPageState extends State<LogInPage> {
   }
 
   void _logIn() {
-    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const YourDetailsPage(),),);
+    Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(
+        builder: (context) => const YourDetailsPage(),
+      ),
+    );
   }
 
   void _signUp() {
-    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const SignUpPage(),));
+    Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(
+          builder: (context) => const SignUpPage(),
+        ));
   }
 }

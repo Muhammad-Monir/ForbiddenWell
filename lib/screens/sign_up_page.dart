@@ -55,7 +55,8 @@ class _SignUpPageState extends State<SignUpPage> {
                     controller: _emailController,
                     keyboardType: TextInputType.emailAddress,
                     decoration: const InputDecoration(
-                      border: OutlineInputBorder(),
+                      contentPadding: EdgeInsets.symmetric(vertical: 5.0, horizontal: 10.0),
+                      border: OutlineInputBorder(borderSide: BorderSide(width: 5.0)),
                       hintText: 'yourmail@gmail.com',
                     ),
                     validator: (value) {
@@ -78,7 +79,8 @@ class _SignUpPageState extends State<SignUpPage> {
                     controller: _passwordController,
                     keyboardType: TextInputType.text,
                     decoration: InputDecoration(
-                      border: const OutlineInputBorder(),
+                      contentPadding: const EdgeInsets.symmetric(vertical: 5.0, horizontal: 10.0),
+                      border: const OutlineInputBorder(borderSide: BorderSide(width: 5.0)),
                       hintText: 'input password',
                       suffixIcon: IconButton(
                         onPressed: () {

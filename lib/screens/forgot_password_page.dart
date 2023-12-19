@@ -49,11 +49,15 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
                     fontWeight: FontWeight.w700,
                   ),
                 ),
+                const SizedBox(
+                  height: 10,
+                ),
                 TextFormField(
                   controller: _emailController,
                   keyboardType: TextInputType.emailAddress,
                   decoration: const InputDecoration(
-                    border: OutlineInputBorder(),
+                    contentPadding: EdgeInsets.symmetric(vertical: 5.0, horizontal: 10.0),
+                    border: OutlineInputBorder(borderSide: BorderSide(width: 5.0)),
                     labelText: 'yourmail@gmail.com',
                   ),
                   validator: (value) {
