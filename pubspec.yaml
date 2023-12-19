@@ -39,6 +39,9 @@ dependencies:
   intl:
   image_picker:
   shared_preferences:
+  country_code_picker:
+  otp_text_field:
+  iconsax:
 
 dev_dependencies:
   flutter_test:

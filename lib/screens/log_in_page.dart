@@ -68,7 +68,7 @@ class _LogInPageState extends State<LogInPage> {
                       decoration: InputDecoration(
                         contentPadding: const EdgeInsets.symmetric(vertical: 5.0, horizontal: 10.0),
                         border: const OutlineInputBorder(borderSide: BorderSide(width: 1.0)),
-                        hintText: 'yourmail@gmail.com',
+                        labelText: 'yourmail@gmail.com',
                         hintStyle: GoogleFonts.ubuntu(fontWeight: FontWeight.w700, fontSize: 16, color: Colors.black),
                       ),
                       validator: (value) {
@@ -115,7 +115,7 @@ class _LogInPageState extends State<LogInPage> {
                       decoration: InputDecoration(
                         contentPadding: const EdgeInsets.symmetric(vertical: 5.0 , horizontal: 10.0),
                         border: const OutlineInputBorder(borderSide: BorderSide(width: 1.0)),
-                        hintText: 'input password',
+                        labelText: 'input password',
                         hintStyle: GoogleFonts.ubuntu(fontWeight: FontWeight.w700, fontSize: 16, color: Colors.black),
                         suffixIcon: IconButton(
                           onPressed: () {

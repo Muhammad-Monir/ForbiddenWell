@@ -39,6 +39,7 @@ class _SplashScreenState extends State<SplashScreen> {
               width: 140.0,
               height: 140.0,
               fit: BoxFit.cover,
+              filterQuality: FilterQuality.high,
             ),
             Text(
               'Forbidden Well',

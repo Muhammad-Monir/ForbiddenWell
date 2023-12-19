@@ -2,10 +2,12 @@ import 'dart:io';
 
 import 'package:black_mamba/common/widgets/custom_image_picker.dart';
 import 'package:black_mamba/common/widgets/radio_button.dart';
-import 'package:black_mamba/utils/helpers/formatted_date.dart';
+import 'package:black_mamba/screens/account_verify_page.dart';
+import 'package:black_mamba/utils/button/long_button.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:intl/intl.dart';
 
 class YourDetailsPage extends StatefulWidget {
   const YourDetailsPage({super.key});
@@ -19,7 +21,7 @@ class _YourDetailsPageState extends State<YourDetailsPage> {
   GenderTypeEnum? genderTypeEnum;
   File? image;
   String titleText = 'Select Date of Birth';
-  final DateTime _dateTime = DateTime.now();
+  DateTime? _selectedDateTime;
 
   pickImage(ImageSource source) {
     CustomImagePicker(source: source).pick(onPick: (File? image) {
@@ -115,7 +117,7 @@ class _YourDetailsPageState extends State<YourDetailsPage> {
                     border: OutlineInputBorder(
                       borderSide: BorderSide(width: 1),
                     ),
-                    hintText: 'Input your name',
+                    labelText: 'Input your name',
                   ),
                 ),
                 const SizedBox(
@@ -173,18 +175,31 @@ class _YourDetailsPageState extends State<YourDetailsPage> {
                 ListTile(
                   shape: const OutlineInputBorder(
                       borderSide: BorderSide(width: 1.0)),
-                  title: Text(titleText) ,
-                  onTap: () {
-                    setState(() {
-                     // titleText = getFormattedDate(_dateTime.toString(), pattern: 'dd/ MM/ yyyy');
-                    });
-                  },
+                  title: Text(titleText),
+                  //Text('${_selectedDateTime == null}' ? '${titleText}' : '${_selectedDateTime}'),
                   trailing: IconButton(
                     onPressed: () {
-                      _showDatePicker();
+                      setState(() {
+                        _showDatePicker();
+                        titleText = formatDateTime(_selectedDateTime!);
+                      });
                     },
                     icon: const Icon(Icons.calendar_today_outlined),
                   ),
+                ),
+                const SizedBox(
+                  height: 130,
+                ),
+                LongButton(
+                  title: 'NEXT',
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const AccountVerifyPage(),
+                      ),
+                    );
+                  },
                 ),
               ],
             ),
@@ -202,7 +217,7 @@ class _YourDetailsPageState extends State<YourDetailsPage> {
 
   void _showImagePicker() {
     showModalBottomSheet(
-      backgroundColor: Colors.white70,
+      backgroundColor: Colors.blue[100],
       context: context,
       builder: (context) {
         return Padding(
@@ -219,13 +234,19 @@ class _YourDetailsPageState extends State<YourDetailsPage> {
                       Navigator.pop(context);
                     },
                     child: const SizedBox(
-                      child: Column(
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Icon(
-                            Icons.camera_alt,
-                            size: 70,
+                          Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Icon(
+                                Icons.camera_alt,
+                                size: 70,
+                              ),
+                              Text('Camera'),
+                            ],
                           ),
-                          Text('Camera'),
                         ],
                       ),
                     ),
@@ -238,13 +259,19 @@ class _YourDetailsPageState extends State<YourDetailsPage> {
                       Navigator.pop(context);
                     },
                     child: const SizedBox(
-                      child: Column(
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Icon(
-                            Icons.image,
-                            size: 70,
+                          Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Icon(
+                                Icons.image,
+                                size: 70,
+                              ),
+                              Text('Gallery'),
+                            ],
                           ),
-                          Text('Gallery'),
                         ],
                       ),
                     ),
@@ -258,11 +285,21 @@ class _YourDetailsPageState extends State<YourDetailsPage> {
     );
   }
 
-  void _showDatePicker() {
+  void _showDatePicker() async {
     showDatePicker(
       context: context,
       firstDate: DateTime(1970),
       lastDate: DateTime(2100),
-    );
+    ).then((value) {
+      if (value != null && value != _selectedDateTime) {
+        _selectedDateTime = DateTime(value.year, value.month, value.day);
+        titleText = formatDateTime(_selectedDateTime!);
+        //print(titleText);
+      }
+    });
+  }
+
+  String formatDateTime(DateTime dateTime) {
+    return DateFormat('dd/ MM/ yyyy').format(dateTime);
   }
 }

@@ -57,7 +57,7 @@ class _SignUpPageState extends State<SignUpPage> {
                     decoration: const InputDecoration(
                       contentPadding: EdgeInsets.symmetric(vertical: 5.0, horizontal: 10.0),
                       border: OutlineInputBorder(borderSide: BorderSide(width: 5.0)),
-                      hintText: 'yourmail@gmail.com',
+                      labelText: 'yourmail@gmail.com',
                     ),
                     validator: (value) {
                       if (value == null || value.isEmpty) {
@@ -81,7 +81,7 @@ class _SignUpPageState extends State<SignUpPage> {
                     decoration: InputDecoration(
                       contentPadding: const EdgeInsets.symmetric(vertical: 5.0, horizontal: 10.0),
                       border: const OutlineInputBorder(borderSide: BorderSide(width: 5.0)),
-                      hintText: 'input password',
+                      labelText: 'input password',
                       suffixIcon: IconButton(
                         onPressed: () {
                           setState(() {
