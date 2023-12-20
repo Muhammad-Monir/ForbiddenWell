@@ -67,8 +67,8 @@ class _YourDetailsPageState extends State<YourDetailsPage> {
                     children: [
                       image == null
                           ? Container(
-                              width: 100.0,
-                              height: 100.0,
+                              width: 80.0,
+                              height: 80.0,
                               decoration: const BoxDecoration(
                                   shape: BoxShape.circle, color: Colors.black),
                               child: const Icon(
@@ -188,7 +188,7 @@ class _YourDetailsPageState extends State<YourDetailsPage> {
                   ),
                 ),
                 const SizedBox(
-                  height: 130,
+                  height: 100,
                 ),
                 LongButton(
                   title: 'NEXT',

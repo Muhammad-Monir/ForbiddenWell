@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "246495781541",
+    "project_id": "black-mamba-d2e2d",
+    "storage_bucket": "black-mamba-d2e2d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:246495781541:android:0f849cac416e1f8a75a34c",
+        "android_client_info": {
+          "package_name": "com.example.black_mamba"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDucVi4vY8HyYgYG7yzusajlQlt7K2Stdo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

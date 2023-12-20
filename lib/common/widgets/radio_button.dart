@@ -28,7 +28,7 @@ class _RadioButtonState extends State<RadioButton> {
       child: RadioListTile<GenderTypeEnum>(
         title: Text(
           '${widget.title}',
-          style: GoogleFonts.ubuntu(fontSize: 16, fontWeight: FontWeight.w700),
+          style: GoogleFonts.ubuntu(fontSize: 14, fontWeight: FontWeight.w700),
         ),
         value: widget.value,
         groupValue: widget.genderTypeEnum,
