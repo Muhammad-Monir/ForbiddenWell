@@ -9,14 +9,14 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:intl/intl.dart';
 
-class YourDetailsPage extends StatefulWidget {
-  const YourDetailsPage({super.key});
+class UserDetailsPage extends StatefulWidget {
+  const UserDetailsPage({super.key});
 
   @override
-  State<YourDetailsPage> createState() => _YourDetailsPageState();
+  State<UserDetailsPage> createState() => _UserDetailsPageState();
 }
 
-class _YourDetailsPageState extends State<YourDetailsPage> {
+class _UserDetailsPageState extends State<UserDetailsPage> {
   final _nameController = TextEditingController();
   GenderTypeEnum? genderTypeEnum;
   File? image;

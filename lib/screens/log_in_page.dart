@@ -4,7 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 
 import 'forgot_password_page.dart';
 import 'sign_up_page.dart';
-import 'your_details_page.dart';
+import 'user_details_page.dart';
 
 class LogInPage extends StatefulWidget {
   const LogInPage({super.key});
@@ -192,7 +192,7 @@ class _LogInPageState extends State<LogInPage> {
     Navigator.pushReplacement(
       context,
       MaterialPageRoute(
-        builder: (context) => const YourDetailsPage(),
+        builder: (context) => const UserDetailsPage(),
       ),
     );
   }

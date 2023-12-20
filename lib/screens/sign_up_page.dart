@@ -1,5 +1,8 @@
+import 'package:black_mamba/data/services/firebase_auth_services.dart';
 import 'package:black_mamba/screens/log_in_page.dart';
+import 'package:black_mamba/screens/user_details_page.dart';
 import 'package:black_mamba/utils/button/long_button.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -11,6 +14,7 @@ class SignUpPage extends StatefulWidget {
 }
 
 class _SignUpPageState extends State<SignUpPage> {
+  final FirebaseAuthService _auth = FirebaseAuthService();
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
   final _formKey = GlobalKey<FormState>();
@@ -55,18 +59,12 @@ class _SignUpPageState extends State<SignUpPage> {
                     controller: _emailController,
                     keyboardType: TextInputType.emailAddress,
                     decoration: const InputDecoration(
-                      contentPadding: EdgeInsets.symmetric(vertical: 5.0, horizontal: 10.0),
-                      border: OutlineInputBorder(borderSide: BorderSide(width: 5.0)),
+                      contentPadding:
+                          EdgeInsets.symmetric(vertical: 5.0, horizontal: 10.0),
+                      border: OutlineInputBorder(
+                          borderSide: BorderSide(width: 5.0)),
                       labelText: 'yourmail@gmail.com',
                     ),
-                    validator: (value) {
-                      if (value == null || value.isEmpty) {
-                        return 'this field not empty';
-                      } else if (value.isNotEmpty) {
-                        return 'input valid gmail address';
-                      }
-                      return null;
-                    },
                   ),
                   const SizedBox(
                     height: 20,
@@ -79,8 +77,10 @@ class _SignUpPageState extends State<SignUpPage> {
                     controller: _passwordController,
                     keyboardType: TextInputType.text,
                     decoration: InputDecoration(
-                      contentPadding: const EdgeInsets.symmetric(vertical: 5.0, horizontal: 10.0),
-                      border: const OutlineInputBorder(borderSide: BorderSide(width: 5.0)),
+                      contentPadding: const EdgeInsets.symmetric(
+                          vertical: 5.0, horizontal: 10.0),
+                      border: const OutlineInputBorder(
+                          borderSide: BorderSide(width: 5.0)),
                       labelText: 'input password',
                       suffixIcon: IconButton(
                         onPressed: () {
@@ -94,7 +94,6 @@ class _SignUpPageState extends State<SignUpPage> {
                       ),
                     ),
                     obscureText: isObscure,
-
                   ),
                   const SizedBox(
                     height: 40,
@@ -157,15 +156,29 @@ class _SignUpPageState extends State<SignUpPage> {
     super.dispose();
   }
 
-  void _signUp() {
-    if (_formKey.currentState!.validate()) {}
+  void _signUp() async {
+    if (_formKey.currentState!.validate()) {
+      String email = _emailController.text;
+      String password = _passwordController.text;
+      User? user = await _auth.signUpEmailAndPassword(email, password);
+      if (user != null) {
+        Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(
+              builder: (context) => const UserDetailsPage(),
+            ));
+      } else {
+        print('some error happend');
+      }
+    }
   }
 
   logIn() {
     Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(
-          builder: (context) => const LogInPage(),
-        ));
+      context,
+      MaterialPageRoute(
+        builder: (context) => const LogInPage(),
+      ),
+    );
   }
 }
