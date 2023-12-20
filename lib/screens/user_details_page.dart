@@ -18,6 +18,7 @@ class UserDetailsPage extends StatefulWidget {
 
 class _UserDetailsPageState extends State<UserDetailsPage> {
   final _nameController = TextEditingController();
+  final _formKey = GlobalKey<FormState>();
   GenderTypeEnum? genderTypeEnum;
   File? image;
   String titleText = 'Select Date of Birth';
@@ -108,16 +109,24 @@ class _UserDetailsPageState extends State<UserDetailsPage> {
                 const SizedBox(
                   height: 10,
                 ),
-                TextFormField(
-                  controller: _nameController,
-                  keyboardType: TextInputType.name,
-                  decoration: const InputDecoration(
-                    contentPadding:
-                        EdgeInsets.symmetric(vertical: 5.0, horizontal: 10.0),
-                    border: OutlineInputBorder(
-                      borderSide: BorderSide(width: 1),
+                Form(
+                  key: _formKey,
+                  child: TextFormField(
+                    controller: _nameController,
+                    keyboardType: TextInputType.name,
+                    decoration: InputDecoration(
+                      contentPadding:
+                          const EdgeInsets.symmetric(vertical: 5.0, horizontal: 10.0),
+                      border: const OutlineInputBorder(
+                        borderSide: BorderSide(width: 1),
+                      ),
+                      hintText: 'Input your name',
+                      hintStyle: GoogleFonts.ubuntu(fontSize: 14,fontWeight: FontWeight.w400),
                     ),
-                    labelText: 'Input your name',
+                    validator: (name) => name!.length < 3
+                        ? 'Name should not be at least 3 characters'
+                        : null,
+                    autovalidateMode: AutovalidateMode.onUserInteraction,
                   ),
                 ),
                 const SizedBox(
@@ -175,14 +184,18 @@ class _UserDetailsPageState extends State<UserDetailsPage> {
                 ListTile(
                   shape: const OutlineInputBorder(
                       borderSide: BorderSide(width: 1.0)),
-                  title: Text(titleText),
+                  title: Text(
+                    titleText,
+                    style: GoogleFonts.ubuntu(
+                      fontWeight: FontWeight.w700,
+                      fontSize: 18,
+                    ),
+                  ),
                   //Text('${_selectedDateTime == null}' ? '${titleText}' : '${_selectedDateTime}'),
                   trailing: IconButton(
-                    onPressed: () {
-                      setState(() {
-                        _showDatePicker();
-                        titleText = formatDateTime(_selectedDateTime!);
-                      });
+                    onPressed: () async {
+                      _showDatePicker();
+                      titleText = formatDateTime(_selectedDateTime!);
                     },
                     icon: const Icon(Icons.calendar_today_outlined),
                   ),
@@ -193,12 +206,14 @@ class _UserDetailsPageState extends State<UserDetailsPage> {
                 LongButton(
                   title: 'NEXT',
                   onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const AccountVerifyPage(),
-                      ),
-                    );
+                    if(_formKey.currentState!.validate()) {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const AccountVerifyPage(),
+                        ),
+                      );
+                    }
                   },
                 ),
               ],
@@ -292,8 +307,10 @@ class _UserDetailsPageState extends State<UserDetailsPage> {
       lastDate: DateTime(2100),
     ).then((value) {
       if (value != null && value != _selectedDateTime) {
-        _selectedDateTime = DateTime(value.year, value.month, value.day);
-        titleText = formatDateTime(_selectedDateTime!);
+        setState(() {
+          _selectedDateTime = DateTime(value.year, value.month, value.day);
+          titleText = formatDateTime(_selectedDateTime!);
+        });
         //print(titleText);
       }
     });
