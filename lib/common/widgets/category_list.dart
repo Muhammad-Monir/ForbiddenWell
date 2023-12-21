@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class CategoryList extends StatefulWidget {
-  const CategoryList({super.key});
+class CategorySection extends StatefulWidget {
+  const CategorySection({super.key});
 
   @override
-  State<CategoryList> createState() => _CategoryListState();
+  State<CategorySection> createState() => _CategorySectionState();
 }
 
-class _CategoryListState extends State<CategoryList> {
+class _CategorySectionState extends State<CategorySection> {
   String categoryName = '';
   List<String> categoryList = [
     'Comprehensive Therapy',

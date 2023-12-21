@@ -1,4 +1,5 @@
 import 'package:black_mamba/common/widgets/category_list.dart';
+import 'package:black_mamba/common/widgets/headline_section.dart';
 import 'package:black_mamba/common/widgets/search_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -64,7 +65,9 @@ class BlackMambaHomePage extends StatelessWidget {
                         style: GoogleFonts.ubuntu(
                             fontWeight: FontWeight.w700, fontSize: 16),
                       ),
-                      const CategoryList(),
+                      const CategorySection(),
+                      const SizedBox(height: 20,),
+                      //const HeadlineSection(),
                     ],
                   ),
                 ),
