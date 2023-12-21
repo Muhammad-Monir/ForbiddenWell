@@ -1,3 +1,5 @@
+import 'package:black_mamba/common/widgets/category_list.dart';
+import 'package:black_mamba/common/widgets/search_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -18,26 +20,67 @@ class BlackMambaHomePage extends StatelessWidget {
       ),
       child: Scaffold(
         backgroundColor: Colors.transparent,
-        body: ListView(
-          padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 40),
-          children: [
-            ListTile(
+        body: CustomScrollView(
+          slivers: [
+            SliverAppBar(
+              automaticallyImplyLeading: false,
+              pinned: true,
               title: Text(
                 'Welcome!',
                 style: GoogleFonts.ubuntu(
-                  fontSize: 30,
                   fontWeight: FontWeight.w700,
+                  fontSize: 30,
                 ),
               ),
-              trailing: Image.asset(
-                'assets/images/menu.png',
-                width: 32,
-                height: 32,
-                fit: BoxFit.cover,
+              actions: [
+                IconButton(
+                  onPressed: () {},
+                  icon: Image.asset(
+                    'assets/images/menu.png',
+                    fit: BoxFit.cover,
+                    color: Colors.black,
+                  ),
+                ),
+              ],
+            ),
+            SliverAppBar(
+              automaticallyImplyLeading: false,
+              backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+              elevation: 0,
+              pinned: true,
+              bottom: const PreferredSize(
+                  preferredSize: Size.fromHeight(-12.0), child: SizedBox()),
+              flexibleSpace: const CustomSearchBar(),
+            ),
+            SliverList(
+              delegate: SliverChildListDelegate([
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Categories',
+                        style: GoogleFonts.ubuntu(
+                            fontWeight: FontWeight.w700, fontSize: 16),
+                      ),
+                      const CategoryList(),
+                    ],
+                  ),
+                ),
+              ]),
+            ),
+            SliverList(
+              delegate: SliverChildBuilderDelegate(
+                (context, index) {
+                  return ListTile(
+                    title: Text('Item ${index + 1}'),
+                    tileColor: Colors.white70,
+                  );
+                },
+                childCount: 20,
               ),
             ),
-            const SizedBox(height: 500,),
-            Center(child: Text('Home'),)
           ],
         ),
       ),
