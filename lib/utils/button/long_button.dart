@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class LongButton extends StatelessWidget {
   final String title;
@@ -20,7 +21,7 @@ class LongButton extends StatelessWidget {
               ),
               backgroundColor: Colors.black,
               foregroundColor: Colors.white,
-              textStyle: const TextStyle(fontSize: 18),
+              textStyle: GoogleFonts.ubuntu(fontWeight: FontWeight.w700, fontSize: 18),
             ),
             onPressed: onPressed,
             child: Text(title),

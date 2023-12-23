@@ -15,15 +15,14 @@ class _NavigationMenuState extends State<NavigationMenu> {
   Widget build(BuildContext context) {
     return Scaffold(
       bottomNavigationBar: NavigationBar(
-        height: 80,
+        height: MediaQuery.of(context).size.height * .068,
         selectedIndex: controller.selectedIndex,
-        elevation: 0,
         backgroundColor: Colors.white,
         onDestinationSelected: (value) => setState(() {
           controller.selectedIndex = value;
         }),
         destinations: const [
-          NavigationDestination(icon: Icon(Iconsax.home), label: 'Home',),
+          NavigationDestination(icon: Icon(Iconsax.home), label: 'Home', ),
           NavigationDestination(icon: Icon(Iconsax.calendar_2), label: 'Booking',),
           NavigationDestination(icon: Icon(Iconsax.heart), label: 'Favorite'),
           NavigationDestination(icon: Icon(Iconsax.user), label: 'Profile'),

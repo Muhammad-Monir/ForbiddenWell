@@ -70,24 +70,11 @@ class BlackMambaHomePage extends StatelessWidget {
                     ],
                   ),
                 ),
-                const SizedBox(
-                  height: 20,
-                ),
-                const Stack(
-                  children: [
-                    HeadlineSection(),
-                  ],
-                ),
+                const HeadlineSection(),
+                const SizedBox(height: 15,),
                 const HomeSection(),
               ]),
             ),
-            // SliverList(
-            //   delegate: SliverChildBuilderDelegate(
-            //     (context, index) {
-            //       return HomeSection();
-            //     },
-            //   ),
-            // ),
           ],
         ),
       ),

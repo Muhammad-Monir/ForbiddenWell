@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class ShortButton extends StatelessWidget {
   final String title;
@@ -9,18 +10,18 @@ class ShortButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-        width: 200,
+        width: 220,
         height: 55,
         child: Padding(
-          padding: const EdgeInsets.all(8.0),
+          padding: const EdgeInsets.all(6.0),
           child: ElevatedButton(
             style: ElevatedButton.styleFrom(
               shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(8),
+                borderRadius: BorderRadius.circular(6),
               ),
               backgroundColor: Colors.black,
               foregroundColor: Colors.white,
-              textStyle: const TextStyle(fontSize: 18),
+              textStyle: GoogleFonts.ubuntu(fontWeight: FontWeight.w700, fontSize: 16)
             ),
             onPressed: onPressed,
             child: Text(title),

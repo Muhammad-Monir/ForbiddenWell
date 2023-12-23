@@ -1,3 +1,5 @@
+import 'package:flutter_lorem/flutter_lorem.dart';
+
 class MassageItem {
   int id;
   String imgTitle;
@@ -24,9 +26,11 @@ final massageList = <MassageItem>[
   MassageItem(
     id: 1,
     imgTitle: 'NanoNectar Infusion',
-    title: 'The Unique Membership Model of Forbidden Well',
-    description:
-        'A massage stick is used by rolling it over an area with muscle tension or pain and this helps work any knots, ease muscles and take the stress off joints. Due to the shape of massage sticks, they are used primarily for body parts like the calves and thighs ',
+    title: 'The Unique\nMembership Model\nof Forbidden Well',
+    description: lorem(
+      paragraphs: 2,
+      words: 60,
+    ),
     imgSubtitle: '(Pro Nanoinfusion)',
     image: 'assets/headline_images/woman_spa.jpg',
     amountTitle: 'Starts From',
@@ -34,9 +38,11 @@ final massageList = <MassageItem>[
   ),
   MassageItem(
     id: 2,
-    title: 'The Unique Membership Model of Forbidden Well',
-    description:
-        'A massage stick is used by rolling it over an area with muscle tension or pain and this helps work any knots, ease muscles and take the stress off joints. Due to the shape of massage sticks, they are used primarily for body parts like the calves and thighs ',
+    title: 'The Unique\nMembership Model\nof Forbidden Well',
+    description: lorem(
+      paragraphs: 2,
+      words: 60,
+    ),
     imgTitle: 'NanoNectar Infusion',
     imgSubtitle: '(Pro Nanoinfusion)',
     image: 'assets/headline_images/facial.jpg',
@@ -45,9 +51,11 @@ final massageList = <MassageItem>[
   ),
   MassageItem(
     id: 2,
-    title: 'The Unique Membership Model of Forbidden Well',
-    description:
-        'A massage stick is used by rolling it over an area with muscle tension or pain and this helps work any knots, ease muscles and take the stress off joints. Due to the shape of massage sticks, they are used primarily for body parts like the calves and thighs ',
+    title: 'The Unique\nMembership Model\nof Forbidden Well',
+    description: lorem(
+      paragraphs: 2,
+      words: 60,
+    ),
     imgTitle: 'NanoNectar Infusion',
     imgSubtitle: '(Pro Nanoinfusion)',
     image: 'assets/headline_images/body_massage.png',
