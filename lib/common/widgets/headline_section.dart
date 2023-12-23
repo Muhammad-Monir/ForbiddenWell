@@ -1,5 +1,7 @@
 import 'package:black_mamba/data/models/massage_item.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:iconsax/iconsax.dart';
 
 class HeadlineSection extends StatefulWidget {
   const HeadlineSection({super.key});
@@ -11,32 +13,92 @@ class HeadlineSection extends StatefulWidget {
 class _HeadlineSectionState extends State<HeadlineSection> {
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-      scrollDirection: Axis.horizontal,
-      itemCount: massageList.length,
-      itemBuilder: (context, index) {
-        final headline = massageList[index];
-        return Padding(
-          padding: const EdgeInsets.all(10.0),
-          child: SizedBox(
-            child: Stack(
-              alignment: Alignment.center,
-              children: [
-                SizedBox(
-                  height: MediaQuery.of(context).size.height * .73,
-                  width: MediaQuery.of(context).size.width * .64,
-                  child: Image.asset(
-                    headline.image,
-                    width: double.infinity,
-                    height: MediaQuery.of(context).size.height * .73,
-                    fit: BoxFit.cover,
+    return SizedBox(
+      height: MediaQuery.of(context).size.height * .55,
+      child: ListView.builder(
+        scrollDirection: Axis.horizontal,
+        itemCount: massageList.length,
+        itemBuilder: (context, index) {
+          final item = massageList[index];
+          return Padding(
+            padding:
+                const EdgeInsets.symmetric(horizontal: 20.0, vertical: 5.0),
+            child: SizedBox(
+              height: MediaQuery.of(context).size.height * .65,
+              width: MediaQuery.of(context).size.width * .90,
+              child: Stack(
+                children: [
+                  ClipRRect(
+                    borderRadius: BorderRadius.circular(26),
+                    child: Image.asset(
+                      item.image,
+                      height: double.infinity,
+                      fit: BoxFit.cover,
+                    ),
                   ),
-                ),
-              ],
+                  Positioned.fill(
+                    top: 20,
+                    left: 30,
+                    child: Align(
+                      alignment: Alignment.topLeft,
+                      child: Text(
+                        item.amountTitle,
+                        style: GoogleFonts.ubuntu(
+                            fontSize: 20,
+                            fontWeight: FontWeight.w700,
+                            color: Colors.white),
+                      ),
+                    ),
+                  ),
+                  Positioned.fill(
+                    top: 20,
+                    right: 10,
+                    child: Align(
+                      alignment: Alignment.topRight,
+                      child: IconButton(
+                        onPressed: () {},
+                        icon: const Icon(
+                          Iconsax.heart,
+                          size: 50,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ),
+                  ),
+                  Positioned.fill(
+                    top: 40,
+                    left: 40,
+                    child: Align(
+                      alignment: Alignment.topLeft,
+                      child: Text(
+                        '\$${item.amount}',
+                        style: GoogleFonts.ubuntu(
+                            fontSize: 30,
+                            fontWeight: FontWeight.w700,
+                            color: Colors.white),
+                      ),
+                    ),
+                  ),
+                  Positioned.fill(
+                    left: 20,
+                    bottom: 10,
+                    child: Align(
+                      alignment: Alignment.bottomLeft,
+                      child: Text(
+                        '${item.imgTitle} \n${item.imgSubtitle}',
+                        style: GoogleFonts.ubuntu(
+                            fontSize: 30,
+                            fontWeight: FontWeight.w700,
+                            color: Colors.white),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
             ),
-          ),
-        );
-      },
+          );
+        },
+      ),
     );
   }
 }

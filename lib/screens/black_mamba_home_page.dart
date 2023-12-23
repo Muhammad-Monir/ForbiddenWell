@@ -1,5 +1,6 @@
 import 'package:black_mamba/common/widgets/category_list.dart';
 import 'package:black_mamba/common/widgets/headline_section.dart';
+import 'package:black_mamba/common/widgets/home_Section.dart';
 import 'package:black_mamba/common/widgets/search_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -56,7 +57,7 @@ class BlackMambaHomePage extends StatelessWidget {
             SliverList(
               delegate: SliverChildListDelegate([
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                  padding: const EdgeInsets.all(8.0),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -66,24 +67,27 @@ class BlackMambaHomePage extends StatelessWidget {
                             fontWeight: FontWeight.w700, fontSize: 16),
                       ),
                       const CategorySection(),
-                      const SizedBox(height: 20,),
-                      //const HeadlineSection(),
                     ],
                   ),
                 ),
+                const SizedBox(
+                  height: 20,
+                ),
+                const Stack(
+                  children: [
+                    HeadlineSection(),
+                  ],
+                ),
+                const HomeSection(),
               ]),
             ),
-            SliverList(
-              delegate: SliverChildBuilderDelegate(
-                (context, index) {
-                  return ListTile(
-                    title: Text('Item ${index + 1}'),
-                    tileColor: Colors.white70,
-                  );
-                },
-                childCount: 20,
-              ),
-            ),
+            // SliverList(
+            //   delegate: SliverChildBuilderDelegate(
+            //     (context, index) {
+            //       return HomeSection();
+            //     },
+            //   ),
+            // ),
           ],
         ),
       ),
